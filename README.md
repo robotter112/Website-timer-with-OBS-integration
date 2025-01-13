@@ -27,10 +27,7 @@ Check out the [demo](https://sc5countdown.partymc.de/).
 
 <table>
   <tr>
-    <td><img alt="Groceries page" src="SC5-Timer/img/2025-01-13_08-10.png"/></td>
-    <td><img alt="Recipe page" src="metadata/en-US/images/phoneScreenshots/recipe.png"/></td>
-    <td><img alt="Plan page" src="metadata/en-US/images/phoneScreenshots/plan.png"/></td>
-    <td><img alt="Expense page" src="metadata/en-US/images/phoneScreenshots/expenses.png"/></td>
+    <td><img alt="Groceries page" src="img/2025-01-13_08-10.png"/></td>
    </tr>
 </table>
 
