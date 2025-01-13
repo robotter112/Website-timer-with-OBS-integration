@@ -1,0 +1,20 @@
+:root { --bg-image: none !important; }
+body { 
+    background: transparent !important;
+    overflow: hidden !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.countdown-box {
+    background: transparent !important;
+    backdrop-filter: none !important;
+}
+.countdown-container {
+    background: rgba(0, 0, 0, 0.0) !important;
+    backdrop-filter: none !important;
+    padding: 25px 35px !important;
+    margin: 0 !important;
+    border-radius: 15px !important;
+}
