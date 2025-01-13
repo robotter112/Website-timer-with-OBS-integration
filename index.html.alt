@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <script defer data-domain="sc5countdown.partymc.de" src="https://plausible.robotter112.de/js/script.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-image: url('sc5_countdown.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .logo {
+            margin-bottom: 20px;
+            width: 100%;
+            text-align: center;
+            animation: floatAnimation 3s ease-in-out infinite;
+        }
+
+        .logo img {
+            max-width: 300px;
+            height: auto;
+        }
+
+        @keyframes floatAnimation {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0); }
+        }
+
+        .headline {
+            text-align: center;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .headline h1 {
+            color: white;
+            font-size: 36px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin: 0;
+        }
+
+        .countdown-container {
+            background: rgba(128, 128, 128, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px 35px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .countdown-box {
+            text-align: center;
+        }
+
+        .number {
+            font-size: 96px;
+            color: white;
+            font-weight: bold;
+            line-height: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin: 0;
+            padding: 0 10px;
+        }
+
+        .label {
+            color: white;
+            font-size: 20px;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .countdown-container {
+                padding: 20px 25px;
+                gap: 15px;
+            }
+
+            .number {
+                font-size: 48px;
+                padding: 0 5px;
+            }
+
+            .label {
+                font-size: 16px;
+            }
+
+            .logo img {
+                max-width: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .countdown-container {
+                padding: 15px 20px;
+                gap: 10px;
+            }
+
+            .number {
+                font-size: 36px;
+                padding: 0 3px;
+            }
+
+            .label {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <img src="logo.webp" alt="Logo">
+    </div>
+
+    <div class="countdown-container">
+        <div class="countdown-box">
+            <div class="number" id="days">00</div>
+            <div class="label">Tage</div>
+        </div>
+        <div class="countdown-box">
+            <div class="number" id="hours">00</div>
+            <div class="label">Stunden</div>
+        </div>
+        <div class="countdown-box">
+            <div class="number" id="minutes">00</div>
+            <div class="label">Minuten</div>
+        </div>
+        <div class="countdown-box">
+            <div class="number" id="seconds">00</div>
+            <div class="label">Sekunden</div>
+        </div>
+    </div>
+
+    <div class="headline" style="display: none;">
+        <h1>Countdown bis zum Start</h1>
+    </div>
+
+    <script>
+        const targetDate = new Date('2024-11-16T18:00:00+01:00');
+
+        function updateCountdown() {
+            const now = new Date();
+            const diff = targetDate - now;
+
+            if (diff <= 0) {
+                ['days', 'hours', 'minutes', 'seconds'].forEach(id => {
+                    document.getElementById(id).textContent = '00';
+                });
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+
+        updateCountdown();
+        const timerInterval = setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
