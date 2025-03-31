@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Countdown Timer</title>
-    <!-- Your tacking code -->
-    <!-- Your tacking code -->
-    <!-- Your tacking code --> 
+    <!-- Hier können Sie Ihren Tracking-Code einfügen -->
+    <!-- Beispiel: Google Analytics, Plausible, etc. -->
+    <!-- Entfernen oder ersetzen Sie diese Kommentare nach Bedarf -->
+
     <style>
+        /* Grundlegende Seiteneinstellungen */
         body {
             margin: 0;
             padding: 0;
@@ -17,6 +19,7 @@
             justify-content: center;
             align-items: center;
             font-family: Arial, sans-serif;
+            /* Hintergrundbild - Pfad bei Bedarf anpassen */
             background-image: url('sc5_countdown.webp');
             background-size: cover;
             background-position: center;
@@ -24,6 +27,7 @@
             background-attachment: fixed;
         }
 
+        /* Logo-Container mit Schwebeanimation */
         .logo {
             margin-bottom: 20px;
             width: 100%;
@@ -31,23 +35,27 @@
             animation: floatAnimation 3s ease-in-out infinite;
         }
 
+        /* Logo-Bildgröße */
         .logo img {
             max-width: 300px;
             height: auto;
         }
 
+        /* Definition der Schwebeanimation für das Logo */
         @keyframes floatAnimation {
             0% { transform: translateY(0); }
             50% { transform: translateY(-5px); }
             100% { transform: translateY(0); }
         }
 
+        /* Überschrift-Container */
         .headline {
             text-align: center;
             margin-bottom: 20px;
             width: 100%;
         }
 
+        /* Überschrift-Styling */
         .headline h1 {
             color: white;
             font-size: 36px;
@@ -55,9 +63,10 @@
             margin: 0;
         }
 
+        /* Countdown-Container mit Glaseffekt */
         .countdown-container {
-            background: rgba(128, 128, 128, 0.4);
-            backdrop-filter: blur(10px);
+            background: rgba(128, 128, 128, 0.4); /* Hintergrundfarbe und Transparenz */
+            backdrop-filter: blur(10px); /* Glaseffekt - funktioniert nicht in allen Browsern */
             border-radius: 15px;
             padding: 25px 35px;
             display: flex;
@@ -66,10 +75,12 @@
             align-items: center;
         }
 
+        /* Einzelne Countdown-Boxen (Tage, Stunden, etc.) */
         .countdown-box {
             text-align: center;
         }
 
+        /* Styling für die Zahlen im Countdown */
         .number {
             font-size: 96px;
             color: white;
@@ -80,12 +91,14 @@
             padding: 0 10px;
         }
 
+        /* Styling für die Beschriftungen (Tage, Stunden, etc.) */
         .label {
             color: white;
             font-size: 20px;
             margin-top: 5px;
         }
 
+        /* Responsive Design für Tablets */
         @media (max-width: 768px) {
             .countdown-container {
                 padding: 20px 25px;
@@ -106,6 +119,7 @@
             }
         }
 
+        /* Responsive Design für Mobilgeräte */
         @media (max-width: 480px) {
             .countdown-container {
                 padding: 15px 20px;
@@ -124,40 +138,50 @@
     </style>
 </head>
 <body>
+    <!-- Logo-Bereich - Bildpfad bei Bedarf anpassen -->
     <div class="logo">
         <img src="weinachtslogo.webp" alt="Logo">
     </div>
 
+    <!-- Countdown-Container mit den einzelnen Zeiteinheiten -->
     <div class="countdown-container">
+        <!-- Tage-Anzeige -->
         <div class="countdown-box">
             <div class="number" id="days">00</div>
             <div class="label">Tage</div>
         </div>
+        <!-- Stunden-Anzeige -->
         <div class="countdown-box">
             <div class="number" id="hours">00</div>
             <div class="label">Stunden</div>
         </div>
+        <!-- Minuten-Anzeige -->
         <div class="countdown-box">
             <div class="number" id="minutes">00</div>
             <div class="label">Minuten</div>
         </div>
+        <!-- Sekunden-Anzeige -->
         <div class="countdown-box">
             <div class="number" id="seconds">00</div>
             <div class="label">Sekunden</div>
         </div>
     </div>
 
-    <div class="headline"">
+    <!-- Überschrift unter dem Countdown -->
+    <div class="headline">
         <h1>WEIHNACHTS-EVENT</h1>
     </div>
 
     <script>
+        // Zieldatum für den Countdown - hier anpassen für andere Events
         const targetDate = new Date('2024-12-24T08:00:00+01:00');
 
+        // Funktion zur Aktualisierung des Countdowns
         function updateCountdown() {
             const now = new Date();
             const diff = targetDate - now;
 
+            // Wenn das Zieldatum erreicht oder überschritten wurde
             if (diff <= 0) {
                 ['days', 'hours', 'minutes', 'seconds'].forEach(id => {
                     document.getElementById(id).textContent = '00';
@@ -165,17 +189,20 @@
                 return;
             }
 
+            // Berechnung der verbleibenden Zeit
             const days = Math.floor(diff / (1000 * 60 * 60 * 24));
             const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
+            // Aktualisierung der Anzeige mit führenden Nullen
             document.getElementById('days').textContent = String(days).padStart(2, '0');
             document.getElementById('hours').textContent = String(hours).padStart(2, '0');
             document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
             document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
         }
 
+        // Initiale Ausführung und Einrichtung des Intervalls (jede Sekunde)
         updateCountdown();
         const timerInterval = setInterval(updateCountdown, 1000);
     </script>
