@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Countdown Timer</title>
-    <!-- Hier können Sie Ihren Tracking-Code einfügen -->
-    <!-- Beispiel: Google Analytics, Plausible, etc. -->
-    <!-- Entfernen oder ersetzen Sie diese Kommentare nach Bedarf -->
+    <!-- You can insert your tracking code here -->
+    <!-- Example: Google Analytics, Plausible, etc. -->
+    <!-- Remove or replace these comments as needed -->
 
     <style>
-        /* Grundlegende Seiteneinstellungen */
+        /* Basic page settings */
         body {
             margin: 0;
             padding: 0;
@@ -19,7 +19,7 @@
             justify-content: center;
             align-items: center;
             font-family: Arial, sans-serif;
-            /* Hintergrundbild - Pfad bei Bedarf anpassen */
+            /* Background image - adjust path as needed */
             background-image: url('sc5_countdown.webp');
             background-size: cover;
             background-position: center;
@@ -27,7 +27,7 @@
             background-attachment: fixed;
         }
 
-        /* Logo-Container mit Schwebeanimation */
+        /* Logo container with floating animation */
         .logo {
             margin-bottom: 20px;
             width: 100%;
@@ -35,27 +35,27 @@
             animation: floatAnimation 3s ease-in-out infinite;
         }
 
-        /* Logo-Bildgröße */
+        /* Logo image size */
         .logo img {
             max-width: 300px;
             height: auto;
         }
 
-        /* Definition der Schwebeanimation für das Logo */
+        /* Definition of the floating animation for the logo */
         @keyframes floatAnimation {
             0% { transform: translateY(0); }
             50% { transform: translateY(-5px); }
             100% { transform: translateY(0); }
         }
 
-        /* Überschrift-Container */
+        /* Headline container */
         .headline {
             text-align: center;
             margin-bottom: 20px;
             width: 100%;
         }
 
-        /* Überschrift-Styling */
+        /* Headline styling */
         .headline h1 {
             color: white;
             font-size: 36px;
@@ -63,10 +63,10 @@
             margin: 0;
         }
 
-        /* Countdown-Container mit Glaseffekt */
+        /* Countdown container with glass effect */
         .countdown-container {
-            background: rgba(128, 128, 128, 0.4); /* Hintergrundfarbe und Transparenz */
-            backdrop-filter: blur(10px); /* Glaseffekt - funktioniert nicht in allen Browsern */
+            background: rgba(128, 128, 128, 0.4); /* Background color and transparency */
+            backdrop-filter: blur(10px); /* Glass effect - doesn't work in all browsers */
             border-radius: 15px;
             padding: 25px 35px;
             display: flex;
@@ -75,12 +75,12 @@
             align-items: center;
         }
 
-        /* Einzelne Countdown-Boxen (Tage, Stunden, etc.) */
+        /* Individual countdown boxes (days, hours, etc.) */
         .countdown-box {
             text-align: center;
         }
 
-        /* Styling für die Zahlen im Countdown */
+        /* Styling for the numbers in the countdown */
         .number {
             font-size: 96px;
             color: white;
@@ -91,14 +91,14 @@
             padding: 0 10px;
         }
 
-        /* Styling für die Beschriftungen (Tage, Stunden, etc.) */
+        /* Styling for the labels (days, hours, etc.) */
         .label {
             color: white;
             font-size: 20px;
             margin-top: 5px;
         }
 
-        /* Responsive Design für Tablets */
+        /* Responsive design for tablets */
         @media (max-width: 768px) {
             .countdown-container {
                 padding: 20px 25px;
@@ -119,7 +119,7 @@
             }
         }
 
-        /* Responsive Design für Mobilgeräte */
+        /* Responsive design for mobile devices */
         @media (max-width: 480px) {
             .countdown-container {
                 padding: 15px 20px;
@@ -138,50 +138,50 @@
     </style>
 </head>
 <body>
-    <!-- Logo-Bereich - Bildpfad bei Bedarf anpassen -->
+    <!-- Logo area - adjust image path as needed -->
     <div class="logo">
         <img src="weinachtslogo.webp" alt="Logo">
     </div>
 
-    <!-- Countdown-Container mit den einzelnen Zeiteinheiten -->
+    <!-- Countdown container with individual time units -->
     <div class="countdown-container">
-        <!-- Tage-Anzeige -->
+        <!-- Days display -->
         <div class="countdown-box">
             <div class="number" id="days">00</div>
             <div class="label">Tage</div>
         </div>
-        <!-- Stunden-Anzeige -->
+        <!-- Hours display -->
         <div class="countdown-box">
             <div class="number" id="hours">00</div>
             <div class="label">Stunden</div>
         </div>
-        <!-- Minuten-Anzeige -->
+        <!-- Minutes display -->
         <div class="countdown-box">
             <div class="number" id="minutes">00</div>
             <div class="label">Minuten</div>
         </div>
-        <!-- Sekunden-Anzeige -->
+        <!-- Seconds display -->
         <div class="countdown-box">
             <div class="number" id="seconds">00</div>
             <div class="label">Sekunden</div>
         </div>
     </div>
 
-    <!-- Überschrift unter dem Countdown -->
+    <!-- Headline below the countdown -->
     <div class="headline">
         <h1>WEIHNACHTS-EVENT</h1>
     </div>
 
     <script>
-        // Zieldatum für den Countdown - hier anpassen für andere Events
+        // Target date for the countdown - adjust here for other events
         const targetDate = new Date('2024-12-24T08:00:00+01:00');
 
-        // Funktion zur Aktualisierung des Countdowns
+        // Function to update the countdown
         function updateCountdown() {
             const now = new Date();
             const diff = targetDate - now;
 
-            // Wenn das Zieldatum erreicht oder überschritten wurde
+            // If the target date has been reached or passed
             if (diff <= 0) {
                 ['days', 'hours', 'minutes', 'seconds'].forEach(id => {
                     document.getElementById(id).textContent = '00';
@@ -189,20 +189,20 @@
                 return;
             }
 
-            // Berechnung der verbleibenden Zeit
+            // Calculation of the remaining time
             const days = Math.floor(diff / (1000 * 60 * 60 * 24));
             const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-            // Aktualisierung der Anzeige mit führenden Nullen
+            // Update the display with leading zeros
             document.getElementById('days').textContent = String(days).padStart(2, '0');
             document.getElementById('hours').textContent = String(hours).padStart(2, '0');
             document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
             document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
         }
 
-        // Initiale Ausführung und Einrichtung des Intervalls (jede Sekunde)
+        // Initial execution and setup of the interval (every second)
         updateCountdown();
         const timerInterval = setInterval(updateCountdown, 1000);
     </script>
