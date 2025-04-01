@@ -1,8 +1,7 @@
-<h1 align="center">
-    SC5-Timer
-</h1>
+# SC5-Timer
+
 <p align="center">
-  <p align="center">Smarter Timer für Events</p>
+  <p align="center">Smart Timer for Events</p>
 </p>
 
 <h4 align="center">
@@ -12,82 +11,82 @@
 <h3 align="center">
 </h3>
 
-Ein intelligenter Timer für Spielevents mit der Möglichkeit, ihn in OBS zu integrieren und den Hintergrund mithilfe benutzerdefinierter CSS zu entfernen.
+An intelligent timer for game events with the ability to integrate it into OBS and remove the background using custom CSS.
 
-- OBS-Integration
-- Keine Google Fonts
-- Einfach anpassbar
+- OBS integration
+- No Google Fonts
+- Easily customizable
 
-Bitte beachten Sie, dass sich dieses Projekt noch in der Entwicklung befindet.
+Please note that this project is still under development.
 
-Schauen Sie sich die Demo an.
+Check out the demo.
 
 ## 📱 Screenshots
 
 <table>
   <tr>
-    <td><img alt="SC5 Timer Vorschau" src="img/2025-01-13_08-10.png"/></td>
+    <td><img alt="SC5 Timer Preview" src="img/2025-01-13_08-10.png"/></td>
    </tr>
 </table>
 
-## Übersicht
+## Overview
 
-Dieses Repository enthält den Quellcode für eine responsive Countdown-Webseite, die die verbleibende Zeit bis zum SC5 Weihnachts-Event anzeigt. Die Webseite zeigt einen dynamischen Countdown in Tagen, Stunden, Minuten und Sekunden an.
+This repository contains the source code for a responsive countdown webpage that displays the remaining time until the SC5 Christmas Event. The webpage shows a dynamic countdown in days, hours, minutes, and seconds.
 
 ## Features
 
-- Responsives Design für verschiedene Bildschirmgrößen (Desktop, Tablet, Mobil)
-- Dynamischer Countdown bis zum festgelegten Datum (24. Dezember 2025, 08:00 Uhr)
-- Animiertes Logo mit Schwebeeffekt
-- Hintergrundbild im Vollbildmodus
-- Halbtransparente Countdown-Box mit Blur-Effekt
-- OBS-kompatible CSS-Datei für Streaming-Integration
+- Responsive design for various screen sizes (desktop, tablet, mobile)
+- Dynamic countdown to a specified date (December 24, 2025, 08:00 AM)
+- Animated logo with hover effect
+- Full-screen background image
+- Semi-transparent countdown box with blur effect
+- OBS-compatible CSS file for streaming integration
 
-## Technologien
+## Technologies
 
 - HTML5
-- CSS3 (mit Flexbox und Animationen)
-- JavaScript (Vanilla JS für den Countdown)
-- Webp-Bildformat für optimierte Ladezeiten
+- CSS3 (with Flexbox and animations)
+- JavaScript (Vanilla JS for the countdown)
+- Webp image format for optimized loading times
 
-## Repository-Struktur
+## Repository Structure
 
-- ```/www``` - Enthält alle Dateien der Webseite (HTML, Bilder)
-- ```/scripts``` - Enthält die CSS-Datei für OBS-Integration
-- ```/img``` - Enthält Vorschaubilder und andere Medien
+- ```/www``` - Contains all webpage files (HTML, images)
+- ```/scripts``` - Contains the CSS file for OBS integration
+- ```/img``` - Contains preview images and other media
 
 ## Installation
 
-1. Klone das Repository:
+1. Clone the repository:
    ```
    git clone https://git.fastm.de/Max/SC5-Timer.git
    ```
 
-2. Öffne die ```/www/index.html``` Datei in deinem bevorzugten Webbrowser.
+2. Open the ```/www/index.html``` file in your preferred web browser.
 
-## OBS-Integration
+## OBS Integration
 
-Im Verzeichnis ```/scripts``` befindet sich eine spezielle CSS-Datei, die verwendet werden kann, um den Timer in OBS einzubinden und korrekt auszuschneiden. Füge die Webseite als Browser-Quelle in OBS hinzu und wende die CSS-Datei an, um nur den Timer anzuzeigen.
+The ```/scripts``` directory contains a special CSS file that can be used to integrate the timer into OBS and properly crop it. Add the webpage as a browser source in OBS and apply the CSS file to display only the timer.
 
-## Anpassung
+## Customization
 
-### Countdown-Ziel ändern
+### Changing the Countdown Target
 
-Um das Zieldatum des Countdowns zu ändern, bearbeite die folgende Zeile in der ```/www/index.html``` Datei:
+To change the target date of the countdown, edit the following line in the ```/www/index.html``` file:
 
 ```javascript
 const targetDate = new Date('2025-12-24T08:00:00+01:00');
 ```
 
-### Styling anpassen
+### Customizing the Style
 
-Das Design kann durch Bearbeiten des ```<style>```-Abschnitts in der ```index.html``` Datei angepasst werden. Die Webseite verwendet responsive Breakpoints für verschiedene Bildschirmgrößen:
+The design can be customized by editing the ```<style>``` section in the ```index.html``` file. The webpage uses responsive breakpoints for different screen sizes:
 
 - Desktop: > 768px
 - Tablet: 480px - 768px
-- Mobil: < 480px
+- Mobile: < 480px
 
-## 📜 Lizenz
+## 📜 License
 
-SC5-Timer ist Freie Software: Du kannst sie nach Belieben nutzen, studieren, teilen und verbessern. Insbesondere kannst du sie unter den Bedingungen der AGPL-3.0-Lizenz weiterverbreiten und/oder modifizieren.
+MIT License
 
